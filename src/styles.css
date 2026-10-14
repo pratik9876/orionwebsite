@@ -1,0 +1,196 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.23 0.006 260);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.129 0.042 264.695);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.129 0.042 264.695);
+  --primary: oklch(0.56 0.21 258);
+  --primary-foreground: oklch(0.984 0.003 247.858);
+  --secondary: oklch(0.97 0.004 260);
+  --secondary-foreground: oklch(0.208 0.042 265.755);
+  --muted: oklch(0.968 0.007 247.896);
+  --muted-foreground: oklch(0.52 0.012 260);
+  --accent: oklch(0.968 0.007 247.896);
+  --accent-foreground: oklch(0.208 0.042 265.755);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.929 0.013 255.508);
+  --input: oklch(0.929 0.013 255.508);
+  --ring: oklch(0.704 0.04 256.788);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.984 0.003 247.858);
+  --sidebar-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-primary: oklch(0.208 0.042 265.755);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.968 0.007 247.896);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+  --sidebar-border: oklch(0.929 0.013 255.508);
+  --sidebar-ring: oklch(0.704 0.04 256.788);
+}
+
+.dark {
+  --background: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.984 0.003 247.858);
+  --card: oklch(0.208 0.042 265.755);
+  --card-foreground: oklch(0.984 0.003 247.858);
+  --popover: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.929 0.013 255.508);
+  --primary-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.279 0.041 260.031);
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+  --muted: oklch(0.279 0.041 260.031);
+  --muted-foreground: oklch(0.704 0.04 256.788);
+  --accent: oklch(0.279 0.041 260.031);
+  --accent-foreground: oklch(0.984 0.003 247.858);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.551 0.027 264.364);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.208 0.042 265.755);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+  --studio-surface: oklch(0.965 0.004 260);
+  --studio-dark: oklch(0.205 0.006 260);
+  --studio-light: oklch(0.95 0.003 260);
+  --star: oklch(0.81 0.15 80);
+  --traffic-red: oklch(0.67 0.21 25);
+  --traffic-yellow: oklch(0.83 0.16 85);
+  --traffic-green: oklch(0.72 0.17 145);
+  --window-shadow: 0 30px 65px -20px oklch(0.2 0.01 260 / 0.24), 0 2px 8px oklch(0.2 0.01 260 / 0.08);
+}
+@theme inline { --font-sans: var(--font-sans); --color-studio-surface: var(--studio-surface); --color-studio-dark: var(--studio-dark); --color-studio-light: var(--studio-light); --color-star: var(--star); }
+body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; letter-spacing: 0; }
+html { scroll-behavior: smooth; }
+.site-header { height: 82px; border-bottom: 1px solid var(--border); background: var(--background); }
+.site-width { max-width: 1120px; margin-inline: auto; padding-inline: 28px; }
+.brand-logo { width: 48px; height: 44px; object-fit: contain; }
+.hero { padding-top: 42px; text-align: center; overflow: hidden; }
+.eyebrow { display: inline-flex; align-items: center; gap: 7px; font-size: 11px; font-weight: 600; color: var(--muted-foreground); letter-spacing: 1.7px; text-transform: uppercase; }
+.hero h1 { margin: 20px 0 8px; font-size: 66px; line-height: 1.08; font-weight: 650; }
+.hero-subtitle { font-size: 30px; font-weight: 500; margin-bottom: 18px; }
+.hero-copy { max-width: 530px; margin-inline: auto; font-size: 16px; line-height: 1.7; color: var(--muted-foreground); }
+.hero-actions { display: flex; gap: 12px; justify-content: center; margin-top: 26px; }
+.mac-preview { margin: 32px auto 0; width: min(850px, 100%); border-radius: 10px; overflow: hidden; box-shadow: var(--window-shadow); border: 1px solid var(--border); }
+.mac-preview img { display: block; width: 100%; height: auto; }
+.hero .mac-preview { width: fit-content; max-width: 100%; }
+.hero .mac-preview img { width: auto; max-width: 100%; max-height: max(220px, calc(100svh - 500px)); object-fit: contain; }
+.hero-bottom { padding: 25px 0 35px; font-size: 12px; color: var(--muted-foreground); display: flex; align-items: center; justify-content: center; gap: 22px; }
+.brand-strip { border-block: 1px solid var(--border); padding: 25px 0; }
+.feature-section { padding-block: 80px; }
+.section-title { font-size: 38px; line-height: 1.2; font-weight: 600; }
+.section-copy { margin-top: 14px; font-size: 16px; line-height: 1.7; color: var(--muted-foreground); }
+.feature-item { padding: 24px; background: var(--studio-surface); border: 1px solid var(--border); border-radius: 8px; }
+.feature-icon { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: var(--background); border: 1px solid var(--border); border-radius: 8px; color: var(--primary); margin-bottom: 20px; }
+.feature-item h3 { font-size: 17px; font-weight: 600; margin-bottom: 10px; }
+.feature-item p { font-size: 14px; line-height: 1.7; color: var(--muted-foreground); }
+.demo-window { overflow: hidden; border-radius: 8px; border: 1px solid var(--border); box-shadow: var(--window-shadow); background: var(--studio-dark); color: var(--studio-light); }
+.demo-toolbar { height: 42px; display: flex; align-items: center; gap: 6px; padding: 0 15px; background: var(--secondary); color: var(--foreground); font-size: 12px; }
+.traffic { height: 10px; width: 10px; border-radius: 50%; }
+.traffic:nth-child(1) { background: var(--traffic-red); }.traffic:nth-child(2) { background: var(--traffic-yellow); }.traffic:nth-child(3) { background: var(--traffic-green); }
+.demo-photo { width: 100%; aspect-ratio: 3/2; object-fit: cover; }
+.demo-controls { padding: 18px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.star-button { color: var(--star); }
+.cta-band { background: var(--studio-surface); border-block: 1px solid var(--border); padding-block: 65px; text-align: center; }
+.page-intro { padding-block: 70px 45px; text-align: center; }
+.page-intro h1 { font-size: 48px; font-weight: 600; }
+.footer { padding-block: 30px; color: var(--muted-foreground); font-size: 12px; }
+@media (max-width: 640px) {
+ .site-width { padding-inline: 20px; }.site-header { height: 70px; }.hero { padding-top: 34px; }.hero h1 { font-size: 46px; }.hero-subtitle { font-size: 24px; }.hero-copy { font-size: 15px; }.hero-actions { gap: 8px; }.hero-actions > * { padding-inline: 14px; font-size: 12px; }.hero .mac-preview img { max-height: none; width: 100%; }.mac-preview { margin-top: 30px; }.hero-bottom { gap: 12px; flex-wrap: wrap; font-size: 11px; }.section-title { font-size: 30px; }.feature-section { padding-block: 52px; }.page-intro h1 { font-size: 38px; }.demo-controls { flex-wrap: wrap; }.desktop-nav { display: none; }.brand-logo { width: 38px; height: 36px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
